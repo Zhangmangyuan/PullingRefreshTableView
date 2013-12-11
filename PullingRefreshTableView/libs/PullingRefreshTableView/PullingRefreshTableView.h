@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    kPRStateNormal = 0,
-    kPRStatePulling = 1,
-    kPRStateLoading = 2,
-    kPRStateHitTheEnd = 3
+    kPRStateNormal = 0,                     //正常状态
+    kPRStatePulling = 1,                    //拉动中
+    kPRStateLoading = 2,                    //加载中
+    kPRStateHitTheEnd = 3                   //遇到底部
 } PRState;
 
 @interface LoadingView : UIView {
@@ -36,12 +36,12 @@ typedef enum {
 @protocol PullingRefreshTableViewDelegate;
 
 @interface PullingRefreshTableView : UITableView <UIScrollViewDelegate>{
-    LoadingView *_headerView;
-    LoadingView *_footerView;
-    UILabel *_msgLabel;
-    BOOL _loading;
-    BOOL _isFooterInAction;
-    NSInteger _bottomRow;
+    LoadingView *_headerView;           //表格头部视图
+    LoadingView *_footerView;           //表格根部视图
+    UILabel *_msgLabel;                 //消息标签
+    BOOL _loading;                      //是否在加载中
+    BOOL _isFooterInAction;             //是否加载更多中
+    NSInteger _bottomRow;               //底部的行数
 }
 @property (assign,nonatomic) id <PullingRefreshTableViewDelegate> pullingDelegate;
 @property (nonatomic) BOOL autoScrollToNextPage;

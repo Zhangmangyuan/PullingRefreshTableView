@@ -34,11 +34,14 @@
 - (id)initWithFrame:(CGRect)frame atTop:(BOOL)top {
     self = [super initWithFrame:frame];
     if (self) {
+        //默认在顶部
         self.atTop = top;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		self.backgroundColor = kPRBGColor;
-//        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
         UIFont *ft = [UIFont systemFontOfSize:12.f];
+        
+        //状态标签
         _stateLabel = [[UILabel alloc] init ];
         _stateLabel.font = ft;
         _stateLabel.textColor = kTextColor;
@@ -46,23 +49,28 @@
         _stateLabel.backgroundColor = kPRBGColor;
         _stateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _stateLabel.text = NSLocalizedString(@"下拉刷新", @"");
+        _stateLabel.textColor = [UIColor blackColor];
         [self addSubview:_stateLabel];
 
+        //时间标签
         _dateLabel = [[UILabel alloc] init ];
         _dateLabel.font = ft;
         _dateLabel.textColor = kTextColor;
         _dateLabel.textAlignment = NSTextAlignmentCenter;
         _dateLabel.backgroundColor = kPRBGColor;
         _dateLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//        _dateLabel.text = NSLocalizedString(@"最后更新", @"");
+        _dateLabel.text = NSLocalizedString(@"最后更新", @"");
+        _dateLabel.textColor = [UIColor blackColor];
         [self addSubview:_dateLabel];
         
+        //箭头视图
         _arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20) ];
 
         _arrow = [CALayer layer];
         _arrow.frame = CGRectMake(0, 0, 20, 20);
         _arrow.contentsGravity = kCAGravityResizeAspect;
       
+        //删除箭头图片
         _arrow.contents = (id)[UIImage imageWithCGImage:[UIImage imageNamed:@"blueArrow.png"].CGImage scale:1 orientation:UIImageOrientationDown].CGImage;
 
         [self.layer addSublayer:_arrow];
@@ -85,6 +93,7 @@
 //    x = 0;
     margin = (kPROffsetY - 2*kPRLabelHeight)/2;
     if (self.isAtTop) {
+        //顶部
         y = size.height - margin - kPRLabelHeight;
         dateFrame = CGRectMake(0,y,size.width,kPRLabelHeight);
         
@@ -95,11 +104,12 @@
         x = kPRMargin;
         y = size.height - margin - kPRArrowHeight;
         arrowFrame = CGRectMake(4*x, y, kPRArrowWidth, kPRArrowHeight);
-        
+        //删除箭头图片
         UIImage *arrow = [UIImage imageNamed:@"blueArrow"];
         _arrow.contents = (id)arrow.CGImage;
         
-    } else {    //at bottom
+    } else {
+        //at bottom  底部
         y = margin;
         stateFrame = CGRectMake(0, y, size.width, kPRLabelHeight );
         
@@ -109,7 +119,7 @@
         x = kPRMargin;
         y = margin;
         arrowFrame = CGRectMake(4*x, y, kPRArrowWidth, kPRArrowHeight);
-        
+        //删除箭头图片
         UIImage *arrow = [UIImage imageNamed:@"blueArrowDown"];        
         _arrow.contents = (id)arrow.CGImage;
         _stateLabel.text = NSLocalizedString(@"上拉加载", @"");
@@ -259,8 +269,11 @@
         _footerView = [[LoadingView alloc] initWithFrame:rect atTop:NO];
         _footerView.atTop = NO;
         [self addSubview:_footerView];
-        
-        [self addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+        //kvo 对contentSize添加监听
+        [self addObserver:self
+               forKeyPath:@"contentSize"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
         
     }
     return self;

@@ -19,9 +19,7 @@
 		01B34160170EF90D00421795 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B3415F170EF90D00421795 /* MainViewController.m */; };
 		01B34162170EFA0900421795 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B34161170EFA0900421795 /* QuartzCore.framework */; };
 		01B3416A170F006400421795 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B34164170F006400421795 /* blueArrow.png */; };
-		01B3416B170F006400421795 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B34165170F006400421795 /* blueArrow@2x.png */; };
 		01B3416C170F006400421795 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B34166170F006400421795 /* blueArrowDown.png */; };
-		01B3416D170F006400421795 /* blueArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B34167170F006400421795 /* blueArrowDown@2x.png */; };
 		01B3416E170F006400421795 /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B34169170F006400421795 /* PullingRefreshTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -43,9 +41,7 @@
 		01B3415F170EF90D00421795 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		01B34161170EFA0900421795 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		01B34164170F006400421795 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
-		01B34165170F006400421795 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
 		01B34166170F006400421795 /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
-		01B34167170F006400421795 /* blueArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrowDown@2x.png"; sourceTree = "<group>"; };
 		01B34168170F006400421795 /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
 		01B34169170F006400421795 /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,9 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				01B34164170F006400421795 /* blueArrow.png */,
-				01B34165170F006400421795 /* blueArrow@2x.png */,
 				01B34166170F006400421795 /* blueArrowDown.png */,
-				01B34167170F006400421795 /* blueArrowDown@2x.png */,
 				01B34168170F006400421795 /* PullingRefreshTableView.h */,
 				01B34169170F006400421795 /* PullingRefreshTableView.m */,
 			);
@@ -207,9 +201,7 @@
 				01B34143170EF76300421795 /* Default@2x.png in Resources */,
 				01B34145170EF76400421795 /* Default-568h@2x.png in Resources */,
 				01B3416A170F006400421795 /* blueArrow.png in Resources */,
-				01B3416B170F006400421795 /* blueArrow@2x.png in Resources */,
 				01B3416C170F006400421795 /* blueArrowDown.png in Resources */,
-				01B3416D170F006400421795 /* blueArrowDown@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +330,7 @@
 				01B3414A170EF76400421795 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,13 +30,15 @@
     [super viewDidLoad];
     self.title = @"PullingRefresh";
     
-    self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(0, 0, 320, [UIScreen mainScreen].bounds.size.height - 64) pullingDelegate:self];
+    self.tableView = [[PullingRefreshTableView alloc]initWithFrame:CGRectMake(0, 64, 320, [UIScreen mainScreen].bounds.size.height - 64) pullingDelegate:self];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 //    [self.tableView setHeaderOnly:YES];          //只有上拉刷新
 //    [self.tableView setFooterOnly:YES];          //只有下拉刷新
     [self.view addSubview:self.tableView];
     
+    [self.tableView launchRefreshing];
     numberArray = [[NSMutableArray alloc]init];
 	// Do any additional setup after loading the view.
 }
@@ -73,7 +75,7 @@
     return date;
 }
 
-//Implement this method if headerOnly is false
+//上拉  Implement this method if headerOnly is false
 - (void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     NSLog(@"%s - [%d]",__FUNCTION__,__LINE__);
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.f];
